@@ -14,12 +14,12 @@ import static org.apache.poi.xwpf.usermodel.ParagraphAlignment.*;
  */
 public class GenerateChapters {
 
-    public static void createDoc(String filename) {
+    public static void createDoc(int fileCount) {
         try {
             //Blank Document
             XWPFDocument document = new XWPFDocument();
             //Write the Document in file system
-            FileOutputStream out = new FileOutputStream(new File(filename));
+            FileOutputStream out = new FileOutputStream(new File("Chapter - " + (fileCount + 1) + ".docx"));
             //create Paragraph
             XWPFParagraph paragraph = document.createParagraph();
             //styling the paragraph contents
@@ -34,17 +34,16 @@ public class GenerateChapters {
 
             addNewLine(7, run);
 
-            run.setText("Chapter 1");
+            run.setText("Chapter " + (fileCount + 1));
             run.addBreak();
 
-            //run.setText("Introduction");
-            String content = JOptionPane.showInputDialog("Enter the name of the Chapter: ");
-            run.setText(content);
+            String chapterTitle = JOptionPane.showInputDialog("Enter the title for Chapter " + (fileCount + 1) + ": ");
+            run.setText(chapterTitle);
             addNewLine(5, run);
 
             document.write(out);
             out.close();
-            System.out.println(filename + " written successully");
+            System.out.println("Chapter " + (fileCount + 1) + " written successully");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -57,15 +56,9 @@ public class GenerateChapters {
     }
 
     public static void main(String[] args) {
-        // A simple GUI component to fetch filename
-        String filename = JOptionPane.showInputDialog("Enter the name of the file : ");
-        if (filename.isEmpty() || filename == null) {
-            JOptionPane.showMessageDialog(null, "Filename cannot be empty", "Error", JOptionPane.OK_CANCEL_OPTION);
-        } else if (filename.contains(".docx")) {
-            createDoc(filename);
-        } else {
-            filename = filename + ".docx";
-            createDoc(filename);
+        int n = Integer.parseInt(JOptionPane.showInputDialog("Enter the no. of Chapters"));
+        for (int i = 0; i < n; ++i) {
+            createDoc(i);
         }
     }
 }
