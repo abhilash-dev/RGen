@@ -16,4 +16,12 @@ A tool to generate undergraduate project reports in MS Word according to a stand
 ![alt text](https://github.com/abhilash69/RGen/blob/master/Sample%20Pics/4.PNG "Enter the contents of paragraph")
 ![alt text](https://github.com/abhilash69/RGen/blob/master/Sample%20Pics/5.PNG "Output")
 
+**3. Creating chapter(s)**
+
+![alt text](https://github.com/abhilash69/RGen/blob/master/Sample%20Pics/6.PNG "Enter the filename")
+
+![alt text](https://github.com/abhilash69/RGen/blob/master/Sample%20Pics/7.PNG "Enter the name of chapter")
+![alt text](https://github.com/abhilash69/RGen/blob/master/Sample%20Pics/8.PNG "Output")
+
+
 
